@@ -7,24 +7,29 @@
     <title>Score 25</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
   </head>
-  <body>
-    <div class="main">
-      <h4>First player to score 25 points wins!</h4>
-      <div class="game">
-        <div class="player0 active">
-          <h2>Player 1</h2>
-          <section class="current-score" id="player0">0</section>
-        </div>
-        <div class="dice">
-          <img src="dice-1.png" alt="dice" class="dice-number hiden" />
-          <button class="rollDice">Roll Dice</button>
-        </div>
-        <div class="player1">
-          <h2>Player 2</h2>
-          <section class="current-score" id="player1">0</section>
-        </div>
+  <body class="grid-container">
+    <header><h1>First player to score 35 points wins!</h1></header>
+    <main class="main-container">
+      <div class="player0 active">
+        <h5>Player 1</h5>
+        <br />
+        <section class="player0-score-box">0</section>
       </div>
-    </div>
+
+      <div class="dice">
+        <img src="dice-1.png" alt="diceNumber" class="dice-number hidden" />
+        <button class="btn-roll">Roll Dice</button>
+        <button class="btn-hold">Hold</button>
+        <button class="btn-new-game">New Game</button>
+      </div>
+
+      <div class="player1">
+        <h5>Player 2</h5>
+        <section class="player1-score-box">0</section>
+      </div>
+    </main>
+    <footer>footer</footer>
+
     <script src="script.js"></script>
   </body>
 </html>

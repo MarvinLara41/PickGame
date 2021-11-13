@@ -1,20 +1,39 @@
 "use strict";
 
-const switchPlayer = document.querySelector(".active");
-const rollDice = document.querySelector(".rollDice");
-let revealDice = document.querySelector(".dice-number");
+const btnRoll = document.querySelector(".btn-roll");
+const player0 = document.querySelector(".player0");
+const player1 = document.querySelector(".player1");
+
 let playing = true;
-let players = [0, 0];
 let currentScore = 0;
+let activePlayer = 0;
 
-rollDice.addEventListener("click", function () {
+const switchPlayer = function () {
+  document.querySelector(`.player${activePlayer}-score-box`).textContent = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  currentScore = 0;
+
+  player0.classList.toggle("active");
+  player1.classList.toggle("active");
+};
+
+btnRoll.addEventListener("click", function () {
   if (playing) {
-    let diceNumber = Math.trunc(Math.random() * 6 + 1);
+    let rollDice = Math.trunc(Math.random() * 6) + 1;
 
-    revealDice.src = `dice-${diceNumber}.png`;
+    let diceNumber = document.querySelector(".dice-number");
 
-    revealDice.classList.remove("hiden");
+    diceNumber.src = `dice-${rollDice}.png`;
 
-    currentScore += diceNumber;
+    if (rollDice !== 1) {
+      currentScore += rollDice;
+
+      console.log(currentScore);
+
+      document.querySelector(`.player${activePlayer}-score-box`).textContent =
+        currentScore;
+    } else {
+      switchPlayer();
+    }
   }
 });
