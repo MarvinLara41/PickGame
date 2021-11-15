@@ -1,6 +1,8 @@
 "use strict";
 
 const btnRoll = document.querySelector(".btn-roll");
+const btnNewGame = document.querySelector(".btn-new-game");
+const btnHold = document.querySelector(".btn-hold");
 const player0 = document.querySelector(".player0");
 const player1 = document.querySelector(".player1");
 
@@ -32,8 +34,19 @@ btnRoll.addEventListener("click", function () {
 
       document.querySelector(`.player${activePlayer}-score-box`).textContent =
         currentScore;
+
+      if (currentScore >= 35) {
+        playing = false;
+
+        document.querySelector(`.player${activePlayer}-score-box`).textContent =
+          "WINNER!";
+      }
     } else {
       switchPlayer();
     }
   }
+});
+
+btnNewGame.addEventListener("click", function () {
+  window.location.reload();
 });

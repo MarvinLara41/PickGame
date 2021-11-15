@@ -67,3 +67,7 @@ footer {
 .active {
   background-color: #87986a;
 }
+
+section {
+  font-size: 5rem;
+}
